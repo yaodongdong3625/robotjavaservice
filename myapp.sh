@@ -2,13 +2,13 @@
 #
 #
 ### 配置路径
-APP_DIR=/test
+APP_DIR=/home/ferly/robotjavaservice
 #//配置名称
-APP_NAME=myapp
+APP_NAME=spring-boot-nlu-0.0.1-SNAPSHOT
 APP_CONF=$APP_DIR/application.properties
 
 #set java home
-export JAVA_HOME=/opt/jdk1.8.0_111
+export JAVA_HOME=/usr/lib/jdk/jdk1.8.0_191
 
 usage() {
     echo "Usage: sh eju-micro-app.sh [start|stop|deploy]"
@@ -17,7 +17,7 @@ usage() {
 
 kills(){
     tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
-    if [[ $tpid ]]; then
+    if [ $tpid ]; then
         echo 'Kill Process!'
         kill -9 $tpid
     fi
@@ -26,33 +26,23 @@ kills(){
 start(){
     rm -f $APP_DIR/tpid
     #nohup java -jar myapp.jar --spring.config.location=application.yml > /dev/null 2>&1 &
-    nohup java -jar $APP_DIR/"$APP_NAME".jar > /dev/null 2>&1 &
+    nohup java -jar $APP_DIR/"$APP_NAME".jar > /home/ferly/robotjavaservice/roslog.txt 2>&1 &
     echo $! > $APP_DIR/tpid
     echo Start Success!
 }
 
 stop(){
         tpid1=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
-    echo tpid1-$tpid1
-        if [[ $tpid1 ]]; then
+    echo 'kill' ${tpid1}
+        if [ $tpid1 ]; then
         echo 'Stop Process...'
-        kill -15 $tpid1
+        kill -9 $tpid1
     fi
-    sleep 5
-    tpid2=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
-        echo tpid2-$tpid2
-    if [[ $tpid2 ]]; then
-        echo 'Kill Process!'
-        kill -9 $tpid2
-    else
-        echo 'Stop Success!'
-    fi
-
 }
 
 check(){
     tpid=`ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
-    if [[ tpid ]]; then
+    if [ tpid ]; then
         echo 'App is running.'
     else
         echo 'App is NOT running.'
