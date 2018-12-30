@@ -2,7 +2,7 @@
 #
 #
 ### 配置路径
-APP_DIR=/home/ferly/robotjavaservice
+APP_DIR=/home/ferly/javaservice/robotjavaservice
 #//配置名称
 APP_NAME=spring-boot-nlu-0.0.1-SNAPSHOT
 APP_CONF=$APP_DIR/application.properties
