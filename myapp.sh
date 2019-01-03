@@ -2,7 +2,7 @@
 #
 #
 ### 配置路径
-APP_DIR=/home/ferly/javaservice/robotjavaservice
+APP_DIR=~/javaservice/robotjavaservice
 #//配置名称
 APP_NAME=spring-boot-nlu-0.0.1-SNAPSHOT
 APP_CONF=$APP_DIR/application.properties
@@ -26,7 +26,7 @@ kills(){
 start(){
     rm -f $APP_DIR/tpid
     #nohup java -jar myapp.jar --spring.config.location=application.yml > /dev/null 2>&1 &
-    nohup java -jar $APP_DIR/"$APP_NAME".jar > /home/ferly/javaservice/robotjavaservice/roslog.txt 2>&1 &
+    nohup java -jar $APP_DIR/"$APP_NAME".jar > ~/javaservice/robotjavaservice/roslog.txt 2>&1 &
     echo $! > $APP_DIR/tpid
     echo Start Success!
 }
