@@ -4,7 +4,7 @@
 ### 配置路径
 APP_DIR=~/javaservice/robotjavaservice
 #//配置名称
-APP_NAME=spring-boot-nlu-0.0.1-SNAPSHOT
+APP_NAME=spring-boot-nlu-0.0.1-SNAPSHOT test
 APP_CONF=$APP_DIR/application.properties
 
 #set java home
