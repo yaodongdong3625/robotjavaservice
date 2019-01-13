@@ -25,7 +25,7 @@ kills(){
 
 start(){
     rm -f $APP_DIR/tpid
-    #nohup java -jar myapp.jar --spring.config.location=application.yml > /dev/null 2>&1 &
+    #nohup java -jar myapp.jar --spring.config.location=application.yml > /dev/null 2>&1 & 1
     nohup java -jar $APP_DIR/"$APP_NAME".jar > ~/javaservice/robotjavaservice/roslog.txt 2>&1 &
     echo $! > $APP_DIR/tpid
     echo Start Success!
